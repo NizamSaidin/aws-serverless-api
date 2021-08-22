@@ -1,7 +1,7 @@
 org: nizamsaidin
 app: aws-serverless-api
 service: aws-serverless-api
-
+useDotenv: true
 frameworkVersion: "2"
 
 provider:
@@ -9,7 +9,6 @@ provider:
   runtime: nodejs14.x
   region: ap-southeast-1
   lambdaHashingVersion: "20201221"
-  environment: ${file(configs.js)}
 
 plugins:
   - serverless-offline
@@ -17,8 +16,6 @@ plugins:
 functions:
   main-api:
     handler: handler.handler
-    environment:
-      MONGODB: ${env:MONGODB}
     events:
       - http:
           path: /
