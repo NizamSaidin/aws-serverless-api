@@ -7,21 +7,32 @@
 Serverless RESTful API created using [Serverless](https://www.serverless.com/framework/docs/getting-started) with [Feathers](http://feathersjs.com).
   
 
+
+
 ### Stack Used:
 
 AWS Lambda - Deploying serverless App
 FeathersJS (with Express) - Creating REST Api
-MongoDB - Database
+MongoDB - Database management
  
+
+
 
 ### Getting Started
 
 This project created in purpose to learn & experience creating a serverless service using AWS Lambda.
 
-Below are API services created & available publicly to test.
+Below are API services created & available publicly to test. You may also find the API list via api.http file.
 
 
-Get contact list
+
+
+### Get contact list
+
+To see more detail on querying, go to [feathers querying](https://docs.feathersjs.com/api/databases/querying.html).
+
+
+
 
 ```http
 GET /dev/contact
@@ -32,15 +43,16 @@ GET /dev/contact
 | `$limit` | `number` | **Optional**. To limit maximum number of record to return. |
 | `fieldName` | `string` | **Optional**. To filter record based on specified field parameters. |
 
+
 Example request
 ```http
 GET /dev/contact?[$sort][firstName]=-1
 ```
 
-To see more detail on querying, go to [feathers querying](https://docs.feathersjs.com/api/databases/querying.html).
 
 
-Get specific contact information
+
+### Get specific contact information
 
 ```http
 GET /dev/contact/{{_id}}
@@ -49,12 +61,15 @@ GET /dev/contact/{{_id}}
 | :--- | :--- | :--- |
 | `_id` | `string` | **Required**. Records ID to get |
 
+
 Example request
 ```http
 GET /dev/contact/61223baa61a88f9a00407358
 ```
 
-Create new contact
+
+
+### Create new contact
 
 ```http
 POST /dev/contact
@@ -68,12 +83,14 @@ POST /dev/contact
 | `address` | `string` | **Required**. |
 | `birthDate` | `string` | **Required**. Date format in DD-MM-YYYY |
 
+
 Example request
 ```http
 PATCH /dev/contact?_id=61223baa61a88f9a00407358
 ```
 
-## Data
+
+### Data
 
 Acceptable request data: 
 
@@ -88,7 +105,9 @@ Acceptable request data:
 }
 ```
 
-Update specific contact information
+
+
+### Update specific contact information
 
 ```http
 PATCH /dev/contact?_id={{_id}}
@@ -97,12 +116,14 @@ PATCH /dev/contact?_id={{_id}}
 | :--- | :--- | :--- |
 | `_id` | `string` | **Required**. Records ID to update |
 
+
 Example request
 ```http
 PATCH /dev/contact?_id=61223baa61a88f9a00407358
 ```
 
-## Data
+
+### Data
 
 Acceptable request data: 
 
@@ -117,7 +138,9 @@ Acceptable request data:
 }
 ```
 
-## Responses
+
+
+### Responses
 Successful request returns a JSON response in the following format:
 ```javascript
 {
@@ -126,8 +149,15 @@ Successful request returns a JSON response in the following format:
 "data" : object
 }
 ```
+
+
+
 ## Help
 
-For more information
-[docs.feathersjs.com](http://docs.feathersjs.com).
+For more information visit
+
+### ****feathers****
+[docs.feathersjs.com](http://docs.feathersjs.com)
+
+### ****serverless****
 [serverless docs](https://www.serverless.com/framework/docs/guides/)
