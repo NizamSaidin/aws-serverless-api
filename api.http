@@ -1,6 +1,6 @@
 # API List
-@baseUrl = https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev
-# @baseUrl = http://localhost:3000/dev
+# @baseUrl = https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev
+@baseUrl = http://localhost:3000/dev
 
 
 ### Create new contact
@@ -8,40 +8,50 @@ POST {{baseUrl}}/contact
 Content-Type: application/json
 
 {
-  "firstName": "Nizam",
-  "lastName": "Saidin",
-  "phoneNumber": "601111416941",
-  "email": "mohamadnizam.saidin@gmail.com",
-  "address": "Cheras, Kuala Lumpur",
-  "birthDate": "24-06-1995"
+  "firstName": "Test",
+  "lastName": "User",
+  "phoneNumber": "60123456610",
+  "email": "test@gmail.com",
+  "address": "Selangor",
+  "birthDate": "19-06-1991"
 }
 
-### Get contact
+### find contact
 GET {{baseUrl}}/contact
 
 {
 }
 
+
+### get all contact
+GET {{baseUrl}}/contact
+
+{
+}
+
+### Filter contact [sort (-1=descending, 1=acending)]
+GET {{baseUrl}}/contact?[$sort][createdAt]=1
+
+{
+}
+
+### Get specific contact
+GET {{baseUrl}}/contact/61223baa61a88f9a00407358
+
+{
+}
+
 ### update contact
-PATCH {{baseUrl}}/contact
+PATCH {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 Content-Type: application/json
 
 {
-  "_id":"612180d215a40cff50488426",
-  "firstName": "Mohamad Nizam",
-  "lastName": "Saidin",
-  "phoneNumber": "601111416940",
-  "email": "mohamadnizam.saidin@gmail.com",
-  "address": "Cheras, Kuala Lumpur, Malaysia",
-  "birthDate": "1995-06-24"
- 
+  "address": "Cheras, Kuala Lumpur, Malaysia"
 }
 
 ### remove contact
-DELETE {{baseUrl}}/contact
+DELETE {{baseUrl}}/contact?_id=61223baa61a88f9a00407351
 Content-Type: application/json
 
-{
-  "_id":"612180d215a40cff50488426"
- 
+{ 
 }

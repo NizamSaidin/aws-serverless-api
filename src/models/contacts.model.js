@@ -24,6 +24,7 @@ module.exports = function (app) {
       phoneNumber: {
         type: String,
         required: [true, 'Phone is required'],
+        unique: true,
         validate: {
           validator: function (v) {
             return /^(601)[0-46-9]*[0-9]{7,8}$/i.test(v);
@@ -43,15 +44,16 @@ module.exports = function (app) {
           validator: function (v) {
             return dayjs(v, 'DD-MM-YYYY').isValid();
           },
-          message: '{VALUE} is not a valid date format. Date format must be in DD-MM-YYYY.',
+          message:
+            '{VALUE} is not a valid date format. Date format must be in DD-MM-YYYY.',
         },
       },
     },
+
     {
       timestamps: true,
     }
   );
-
   // This is necessary to avoid model compilation errors in watch mode
   // see https://mongoosejs.com/docs/api/connection.html#connection_Connection-deleteModel
   if (mongooseClient.modelNames().includes(modelName)) {

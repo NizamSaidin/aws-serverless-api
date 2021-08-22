@@ -8,7 +8,10 @@ module.exports = {
         let { params, data, method } = hook;
         let { query } = params;
 
-        if (query && (method === 'get' || method === 'find')) {
+        if (
+          query &&
+          (method === 'get' || method === 'find' || method === 'remove')
+        ) {
           hook.params.query = castObjectIds(query);
           hook.params.query = castDateTime(query);
         }
