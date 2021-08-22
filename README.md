@@ -34,9 +34,10 @@ To see more detail on querying, go to [feathers querying](https://docs.feathersj
 
 
 
+_BASE URL : https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev_
 
 ```http
-GET /dev/contact
+GET /contact
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -47,7 +48,7 @@ GET /dev/contact
 
 Example request
 ```http
-GET /dev/contact?[$sort][firstName]=-1
+GET /contact?[$sort][firstName]=-1
 ```
 
 
@@ -56,7 +57,7 @@ GET /dev/contact?[$sort][firstName]=-1
 ### Get specific contact information
 
 ```http
-GET /dev/contact/{{_id}}
+GET /contact/{{_id}}
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -65,7 +66,7 @@ GET /dev/contact/{{_id}}
 
 Example request
 ```http
-GET /dev/contact/61223baa61a88f9a00407358
+GET /contact/61223baa61a88f9a00407358
 ```
 
 
@@ -73,7 +74,7 @@ GET /dev/contact/61223baa61a88f9a00407358
 ### Create new contact
 
 ```http
-POST /dev/contact
+POST /contact
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -87,7 +88,7 @@ POST /dev/contact
 
 Example request
 ```http
-POST /dev/contact?_id=61223baa61a88f9a00407358
+POST /contact?_id=61223baa61a88f9a00407358
 ```
 
 
@@ -111,7 +112,7 @@ Acceptable request data:
 ### Update specific contact information
 
 ```http
-PATCH /dev/contact?_id={{_id}}
+PATCH /contact?_id={{_id}}
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -120,7 +121,7 @@ PATCH /dev/contact?_id={{_id}}
 
 Example request
 ```http
-PATCH /dev/contact?_id=61223baa61a88f9a00407358
+PATCH /contact?_id=61223baa61a88f9a00407358
 ```
 
 
@@ -144,7 +145,7 @@ Acceptable request data:
 ### Remove specific contact information
 
 ```http
-DELETE /dev/contact/{{_id}}
+DELETE /contact/{{_id}}
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -153,7 +154,7 @@ DELETE /dev/contact/{{_id}}
 
 Example request
 ```http
-GET /dev/contact/61223baa61a88f9a00407358
+GET /contact/61223baa61a88f9a00407358
 ```
 
 
