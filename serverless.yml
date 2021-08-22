@@ -2,6 +2,7 @@ org: nizamsaidin
 app: aws-serverless-api
 service: aws-serverless-api
 useDotenv: true
+
 frameworkVersion: "2"
 
 provider:
@@ -16,6 +17,8 @@ plugins:
 functions:
   main-api:
     handler: handler.handler
+    environment:
+      MONGODB: ${env:MONGODB}
     events:
       - http:
           path: /

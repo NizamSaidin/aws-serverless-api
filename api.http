@@ -1,6 +1,6 @@
 # API List
-# @baseUrl = https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev
-@baseUrl = http://localhost:3000/dev
+@baseUrl = https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev
+# @baseUrl = http://localhost:3000/dev
 
 
 ### Create new contact
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Get contact
-GET {{baseUrl}}/contact?[$sort][createdAt]=1
+GET {{baseUrl}}/contact
 
 {
 }
