@@ -11,9 +11,10 @@ Serverless RESTful API created using [Serverless](https://www.serverless.com/fra
 
 ### Stack Used:
 
-AWS Lambda - Deploying serverless App
-FeathersJS (with Express) - Creating REST Api
-MongoDB - Database management
+- AWS Lambda - Deploying serverless App
+- FeathersJS (with Express) - Creating REST Api
+- MongoDB - Database management
+
  
 
 
