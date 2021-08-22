@@ -97,7 +97,7 @@ POST {{baseUrl}}/contact
 
 Example request
 ```http
-POST {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
+POST {{baseUrl}}/contact
 ```
 
 
@@ -118,10 +118,10 @@ Acceptable request data:
 
 CURL
 ```
-curl -H "Content-type: application/json" -d '{
+curl -XPOST -d '{
   "firstName": "Test",
   "lastName": "User",
-  "phoneNumber": "60123456619",
+  "phoneNumber": "60123456610",
   "email": "test@gmail.com",
   "address": "Selangor",
   "birthDate": "19-06-1991"
@@ -139,6 +139,12 @@ PATCH {{baseUrl}}/contact?_id={{_id}}
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `_id` | `string` | **Required**. Records ID to update |
+| `firstName` | `string` | **Optional**. |
+| `lastName` | `string` | **Optional**. |
+| `phoneNumber` | `string` | **Optional**. Malaysian phone number with phone code - (eg: 601234567890) |
+| `email` | `string` | **Optional**.  |
+| `address` | `string` | **Optional**. |
+| `birthDate` | `string` | **Optional**. Date format in DD-MM-YYYY |
 
 
 Example request
@@ -149,9 +155,9 @@ PATCH {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 
 CURL
 ```
-curl -H "Content-type: application/json" -d '{
+curl -XPATCH -d '{
   "address": "Cheras, Kuala Lumpur, Malaysia"
-}' 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407358'
+}' 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407351'
 ```
 
 
@@ -176,7 +182,7 @@ Acceptable request data:
 ### Remove specific contact information
 
 ```http
-DELETE {{baseUrl}}/contact/{{_id}}
+DELETE {{baseUrl}}/contact?_id={{_id}}
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -185,12 +191,12 @@ DELETE {{baseUrl}}/contact/{{_id}}
 
 Example request
 ```http
-GET {{baseUrl}}/contact/61223baa61a88f9a00407358
+DELETE {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 ```
 
 CURL
 ```
-curl -H "Content-type: application/json" 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407351'
+curl -XDELETE 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407351'
 ````
 
 
