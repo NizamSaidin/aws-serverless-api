@@ -51,7 +51,10 @@ Example request
 GET {{baseUrl}}/contact?[$sort][firstName]=-1
 ```
 
-
+CURL 
+```
+curl -H "Content-type: application/json" 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?[$sort][firstName]=1'
+```
 
 
 ### Get specific contact information
@@ -67,6 +70,12 @@ GET {{baseUrl}}/contact/{{_id}}
 Example request
 ```http
 GET {{baseUrl}}/contact/61223baa61a88f9a00407358
+```
+
+
+CURL 
+```
+curl -H "Content-type: application/json" 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact/61223baa61a88f9a00407358'
 ```
 
 
@@ -107,6 +116,19 @@ Acceptable request data:
 }
 ```
 
+CURL
+```
+curl -H "Content-type: application/json" -d '{
+  "firstName": "Test",
+  "lastName": "User",
+  "phoneNumber": "60123456619",
+  "email": "test@gmail.com",
+  "address": "Selangor",
+  "birthDate": "19-06-1991"
+}' 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact'
+```
+
+
 
 
 ### Update specific contact information
@@ -123,6 +145,15 @@ Example request
 ```http
 PATCH {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 ```
+
+
+CURL
+```
+curl -H "Content-type: application/json" -d '{
+  "address": "Cheras, Kuala Lumpur, Malaysia"
+}' 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407358'
+```
+
 
 
 ### Data
@@ -156,6 +187,11 @@ Example request
 ```http
 GET {{baseUrl}}/contact/61223baa61a88f9a00407358
 ```
+
+CURL
+```
+curl -H "Content-type: application/json" 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407351'
+````
 
 
 
