@@ -1,0 +1,47 @@
+# API List
+# @baseUrl = https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev
+@baseUrl = http://localhost:3000/dev
+
+
+### Create new contact
+POST {{baseUrl}}/contact
+Content-Type: application/json
+
+{
+  "firstName": "Nizam",
+  "lastName": "Saidin",
+  "phoneNumber": "601111416941",
+  "email": "mohamadnizam.saidin@gmail.com",
+  "address": "Cheras, Kuala Lumpur",
+  "birthDate": "24-06-1995"
+}
+
+### Get contact
+GET {{baseUrl}}/contact?[$sort][createdAt]=1
+
+{
+}
+
+### update contact
+PATCH {{baseUrl}}/contact
+Content-Type: application/json
+
+{
+  "_id":"612180d215a40cff50488426",
+  "firstName": "Mohamad Nizam",
+  "lastName": "Saidin",
+  "phoneNumber": "601111416940",
+  "email": "mohamadnizam.saidin@gmail.com",
+  "address": "Cheras, Kuala Lumpur, Malaysia",
+  "birthDate": "1995-06-24"
+ 
+}
+
+### remove contact
+DELETE {{baseUrl}}/contact
+Content-Type: application/json
+
+{
+  "_id":"612180d215a40cff50488426"
+ 
+}

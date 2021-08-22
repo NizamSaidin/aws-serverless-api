@@ -1,0 +1,30 @@
+org: nizamsaidin
+app: aws-serverless-api
+service: aws-serverless-api
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ap-southeast-1
+  lambdaHashingVersion: "20201221"
+  environment: ${file(configs.js)}
+
+plugins:
+  - serverless-offline
+
+functions:
+  main-api:
+    handler: handler.handler
+    environment:
+      MONGODB: ${env:MONGODB}
+    events:
+      - http:
+          path: /
+          method: any
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
