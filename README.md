@@ -86,7 +86,7 @@ POST /dev/contact
 
 Example request
 ```http
-PATCH /dev/contact?_id=61223baa61a88f9a00407358
+POST /dev/contact?_id=61223baa61a88f9a00407358
 ```
 
 
@@ -137,6 +137,24 @@ Acceptable request data:
 "birthDate" : string //with format (DD-MM-YYYY)
 }
 ```
+
+
+
+### Remove specific contact information
+
+```http
+DELETE /dev/contact/{{_id}}
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `_id` | `string` | **Required**. Records ID to delete |
+
+
+Example request
+```http
+GET /dev/contact/61223baa61a88f9a00407358
+```
+
 
 
 
