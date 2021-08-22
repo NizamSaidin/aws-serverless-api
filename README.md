@@ -1,45 +1,133 @@
 # aws-serverless-api
 
-> AWS Serverless RESTful API 
+> AWS Serverless RESTful API
 
-## About
+### About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
+Serverless RESTful API created using [Serverless](https://www.serverless.com/framework/docs/getting-started) with [Feathers](http://feathersjs.com).
+  
 
-## Getting Started
+### Stack Used:
 
-Getting up and running is as easy as 1, 2, 3.
+AWS Lambda - Deploying serverless App
+FeathersJS (with Express) - Creating REST Api
+MongoDB - Database
+ 
 
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
-2. Install your dependencies
+### Getting Started
 
-    ```
-    cd path/to/aws-serverless-api
-    npm install
-    ```
+This project created in purpose to learn & experience creating a serverless service using AWS Lambda.
 
-3. Start your app
+Below are API services created & available publicly to test.
 
-    ```
-    npm start
-    ```
 
-## Testing
+Get contact list
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
-
-Feathers has a powerful command line interface. Here are a few things it can do:
-
+```http
+GET /dev/contact
 ```
-$ npm install -g @feathersjs/cli          # Install Feathers CLI
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `$sort` | `object` | **Optional**. To sort return data based on specified field parameter. Acceptable value: (-1=descending) or (1=acending) |
+| `$limit` | `number` | **Optional**. To limit maximum number of record to return. |
+| `fieldName` | `string` | **Optional**. To filter record based on specified field parameters. |
 
-$ feathers generate service               # Generate a new Service
-$ feathers generate hook                  # Generate a new Hook
-$ feathers help                           # Show all commands
+Example request
+```http
+GET /dev/contact?[$sort][firstName]=-1
 ```
 
+To see more detail on querying, go to [feathers querying](https://docs.feathersjs.com/api/databases/querying.html).
+
+
+Get specific contact information
+
+```http
+GET /dev/contact/{{_id}}
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `_id` | `string` | **Required**. Records ID to get |
+
+Example request
+```http
+GET /dev/contact/61223baa61a88f9a00407358
+```
+
+Create new contact
+
+```http
+POST /dev/contact
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `firstName` | `string` | **Required**. |
+| `lastName` | `string` | **Required**. |
+| `phoneNumber` | `string` | **Required**. Malaysian phone number with phone code - (eg: 601234567890) |
+| `email` | `string` | **Required**.  |
+| `address` | `string` | **Required**. |
+| `birthDate` | `string` | **Required**. Date format in DD-MM-YYYY |
+
+Example request
+```http
+PATCH /dev/contact?_id=61223baa61a88f9a00407358
+```
+
+## Data
+
+Acceptable request data: 
+
+```javascript
+{
+"firstName" : string,
+"lastName" : string,
+"phoneNumber" : string, //with malaysian phone number format including phone code,
+"email" : string,
+"address" : string,
+"birthDate" : string //with format (DD-MM-YYYY)
+}
+```
+
+Update specific contact information
+
+```http
+PATCH /dev/contact?_id={{_id}}
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `_id` | `string` | **Required**. Records ID to update |
+
+Example request
+```http
+PATCH /dev/contact?_id=61223baa61a88f9a00407358
+```
+
+## Data
+
+Acceptable request data: 
+
+```javascript
+{
+"firstName" : string,
+"lastName" : string,
+"phoneNumber" : string, //with malaysian phone number format including phone code,
+"email" : string,
+"address" : string,
+"birthDate" : string //with format (DD-MM-YYYY)
+}
+```
+
+## Responses
+Successful request returns a JSON response in the following format:
+```javascript
+{
+"message" : string,
+"status" : number,
+"data" : object
+}
+```
 ## Help
 
-For more information on all the things you can do with Feathers visit [docs.feathersjs.com](http://docs.feathersjs.com).
+For more information
+[docs.feathersjs.com](http://docs.feathersjs.com).
+[serverless docs](https://www.serverless.com/framework/docs/guides/)
