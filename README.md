@@ -34,10 +34,10 @@ To see more detail on querying, go to [feathers querying](https://docs.feathersj
 
 
 
-_BASE URL : https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev_
+_baseUrl : https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev_
 
 ```http
-GET /contact
+GET {{baseUrl}}/contact
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -48,7 +48,7 @@ GET /contact
 
 Example request
 ```http
-GET /contact?[$sort][firstName]=-1
+GET {{baseUrl}}/contact?[$sort][firstName]=-1
 ```
 
 
@@ -57,7 +57,7 @@ GET /contact?[$sort][firstName]=-1
 ### Get specific contact information
 
 ```http
-GET /contact/{{_id}}
+GET {{baseUrl}}/contact/{{_id}}
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -66,7 +66,7 @@ GET /contact/{{_id}}
 
 Example request
 ```http
-GET /contact/61223baa61a88f9a00407358
+GET {{baseUrl}}/contact/61223baa61a88f9a00407358
 ```
 
 
@@ -74,7 +74,7 @@ GET /contact/61223baa61a88f9a00407358
 ### Create new contact
 
 ```http
-POST /contact
+POST {{baseUrl}}/contact
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -88,7 +88,7 @@ POST /contact
 
 Example request
 ```http
-POST /contact?_id=61223baa61a88f9a00407358
+POST {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 ```
 
 
@@ -112,7 +112,7 @@ Acceptable request data:
 ### Update specific contact information
 
 ```http
-PATCH /contact?_id={{_id}}
+PATCH {{baseUrl}}/contact?_id={{_id}}
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -121,7 +121,7 @@ PATCH /contact?_id={{_id}}
 
 Example request
 ```http
-PATCH /contact?_id=61223baa61a88f9a00407358
+PATCH {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 ```
 
 
@@ -145,7 +145,7 @@ Acceptable request data:
 ### Remove specific contact information
 
 ```http
-DELETE /contact/{{_id}}
+DELETE {{baseUrl}}/contact/{{_id}}
 ```
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -154,7 +154,7 @@ DELETE /contact/{{_id}}
 
 Example request
 ```http
-GET /contact/61223baa61a88f9a00407358
+GET {{baseUrl}}/contact/61223baa61a88f9a00407358
 ```
 
 
