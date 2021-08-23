@@ -89,7 +89,7 @@ POST {{baseUrl}}/contact
 | :--- | :--- | :--- |
 | `firstName` | `string` | **Required**. |
 | `lastName` | `string` | **Required**. |
-| `phoneNumber` | `string` | **Required**. Malaysian phone number with phone code - (eg: 601234567890) |
+| `phoneNumber` | `string` | **Required**. |
 | `email` | `string` | **Required**.  |
 | `address` | `string` | **Required**. |
 | `birthDate` | `string` | **Required**. Date format in DD-MM-YYYY |
@@ -109,7 +109,7 @@ Acceptable request data:
 {
 "firstName" : string,
 "lastName" : string,
-"phoneNumber" : string, //with malaysian phone number format including phone code,
+"phoneNumber" : string, 
 "email" : string,
 "address" : string,
 "birthDate" : string //with format (DD-MM-YYYY)
@@ -141,7 +141,7 @@ PATCH {{baseUrl}}/contact?_id={{_id}}
 | `_id` | `string` | **Required**. Records ID to update |
 | `firstName` | `string` | **Optional**. |
 | `lastName` | `string` | **Optional**. |
-| `phoneNumber` | `string` | **Optional**. Malaysian phone number with phone code - (eg: 601234567890) |
+| `phoneNumber` | `string` | **Optional**. |
 | `email` | `string` | **Optional**.  |
 | `address` | `string` | **Optional**. |
 | `birthDate` | `string` | **Optional**. Date format in DD-MM-YYYY |
@@ -170,7 +170,7 @@ Acceptable request data:
 {
 "firstName" : string,
 "lastName" : string,
-"phoneNumber" : string, //with malaysian phone number format including phone code,
+"phoneNumber" : string, 
 "email" : string,
 "address" : string,
 "birthDate" : string //with format (DD-MM-YYYY)
