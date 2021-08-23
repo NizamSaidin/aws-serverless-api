@@ -118,7 +118,7 @@ Acceptable request data:
 
 CURL
 ```
-curl -XPOST -d '{
+curl -X POST -H "Content-type: application/json" -d '{
   "firstName": "Test",
   "lastName": "User",
   "phoneNumber": "60123456610",
@@ -155,7 +155,7 @@ PATCH {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 
 CURL
 ```
-curl -XPATCH -d '{
+curl -X PATCH -H "Content-type: application/json" -d '{
   "address": "Cheras, Kuala Lumpur, Malaysia"
 }' 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407351'
 ```
@@ -196,7 +196,7 @@ DELETE {{baseUrl}}/contact?_id=61223baa61a88f9a00407358
 
 CURL
 ```
-curl -XDELETE 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=61223baa61a88f9a00407351'
+curl -X DELETE -H "Content-type: application/json" 'https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev/contact?_id=6122fcda384444000828894e'
 ````
 
 
