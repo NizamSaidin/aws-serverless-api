@@ -1,4 +1,6 @@
 # API List
+# https://docs.feathersjs.com/api/databases/querying.html
+
 # @baseUrl = https://wtgqgtivzc.execute-api.ap-southeast-1.amazonaws.com/dev
 @baseUrl = http://localhost:3000/dev
 
@@ -8,18 +10,12 @@ POST {{baseUrl}}/contact
 Content-Type: application/json
 
 {
-  "firstName": "Test",
-  "lastName": "User",
-  "phoneNumber": "60123456610",
-  "email": "test@gmail.com",
-  "address": "Selangor",
-  "birthDate": "19-06-1991"
-}
-
-### find contact
-GET {{baseUrl}}/contact
-
-{
+  "firstName": "Abu",
+  "lastName": "Jabbar",
+  "phoneNumber": "60123456441",
+  "email": "jabbar@gmail.com",
+  "address": "Melaka",
+  "birthDate": "10-06-1993"
 }
 
 
@@ -29,8 +25,15 @@ GET {{baseUrl}}/contact
 {
 }
 
-### Filter contact [sort (-1=descending, 1=acending)]
-GET {{baseUrl}}/contact?[$sort][createdAt]=1
+### sort contact based on createdAt (-1=descending, 1=acending)]
+GET {{baseUrl}}/contact?[$sort][firstName]=1&[$sort][lastName]=1
+
+{
+}
+
+
+### filter contact
+GET {{baseUrl}}/contact?$or[0][lastName]=User&$or[1][firstName]=John
 
 {
 }
@@ -50,7 +53,7 @@ Content-Type: application/json
 }
 
 ### remove contact
-DELETE {{baseUrl}}/contact?_id=61223baa61a88f9a00407351
+DELETE {{baseUrl}}/contact?_id=61229dc492257b0008a420b1
 Content-Type: application/json
 
 { 
