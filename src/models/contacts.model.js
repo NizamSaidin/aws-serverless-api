@@ -1,12 +1,13 @@
-require('mongoose-type-email');
 const dayjs = require('dayjs');
 const customParseFormat = require('dayjs/plugin/customParseFormat');
+const { isValidEmail } = require('../utils');
 dayjs.extend(customParseFormat);
 
 module.exports = function (app) {
   const modelName = 'contacts';
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
+
   const schema = new Schema(
     {
       firstName: {
@@ -18,19 +19,19 @@ module.exports = function (app) {
         required: [true, 'Last Name is required'],
       },
       email: {
-        type: mongooseClient.SchemaTypes.Email,
+        type: String,
         required: [true, 'Email is required'],
+        validate: {
+          validator: (v) => isValidEmail(v),
+          message: '{VALUE} is not a valid email address format',
+        },
       },
       phoneNumber: {
         type: String,
         required: [true, 'Phone is required'],
         unique: true,
-        validate: {
-          validator: function (v) {
-            return /^(601)[0-46-9]*[0-9]{7,8}$/i.test(v);
-          },
-          message: '{VALUE} is not a valid malaysia phone number!',
-        },
+        min: [9, 'Invalid Phone Number'],
+        max: [12, 'Invalid Phone Number'],
       },
       address: {
         type: String,
@@ -38,14 +39,11 @@ module.exports = function (app) {
       },
       birthDate: {
         type: String,
-
         required: [true, 'Birth Date is required'],
         validate: {
-          validator: function (v) {
-            return dayjs(v, 'DD-MM-YYYY').isValid();
-          },
+          validator: (v) => dayjs(v, 'DD-MM-YYYY').isValid(),
           message:
-            '{VALUE} is not a valid date format. Date format must be in DD-MM-YYYY.',
+            '{VALUE} is not a valid date format. Date format must be in DD-MM-YYYY',
         },
       },
     },
